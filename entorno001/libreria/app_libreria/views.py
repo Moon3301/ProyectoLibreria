@@ -9,7 +9,12 @@ def libros (request):
     return render (request, 'libros.html')
 
 
+def listarLibros (request):
+    listado = Libro.objects.all()
 
+    contexto = {'listado' : listado}
+    return render (request, 'libros.html', contexto)
+    
 
 
 # Create your views here.
