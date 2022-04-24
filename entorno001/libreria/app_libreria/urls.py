@@ -9,5 +9,6 @@ from .views import *
 urlpatterns = [
 
     path('inicio',inicio ,name = "inicio"),
+    path('libros',libros, name = "libros"),
 
 ]
