@@ -17,7 +17,7 @@ class Libro(models.Model):
     id       = models.IntegerField(primary_key=True)
     nombre   = models.CharField(max_length=50)
     autor    = models.CharField(max_length=50)
-    imagen   = models.ImageField()
+    imagen   = models.CharField(max_length=50)
     editorial= models.CharField(max_length=50)
     stock    = models.IntegerField()
     def __str__(self):
