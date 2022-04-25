@@ -123,27 +123,35 @@
             </ul>
           </div>
         </div>
+        
+        <div class="row portfolio-container ">
+          {% for dato in listado %}
 
-        <div class="row portfolio-container">
-        {% for dato in listado %}
+          <div class="col-3 portfolio-item filter-app" style=" width: 220px; height: 220px;">
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src=  "static/libros/{{dato.imagen}}"  class="img-fluid" alt="de la perra">
-            <div class="portfolio-info">
-              <h4>{{dato.nombre}}</h4>
-              <p>{{dato.stock}}</p>
-              <div class="portfolio-links">
-                <a href="static/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap" style=" text-align: center;">
+              <img src="static/libros/{{dato.imagen}}" width="200px" height="200px" style="margin:0 auto" class="img" alt="{{dato.nombre}}">
+              <div class="portfolio-info">
+                <h4>{{dato.nombre}}</h4>
+                <p>Stock: {{dato.stock}}</p>
+                <p>Editorial: {{dato.editorial}}</p>
+                <div class="portfolio-links">
+                  <a href="static/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  
+                </div>
               </div>
             </div>
+
           </div>
+
+
+        
+
+        
+          {%endfor%}
         </div>
 
-      </div>
-
-        {%endfor%}
+        
       </div>
       
     </section><!-- End Portfolio Section -->
