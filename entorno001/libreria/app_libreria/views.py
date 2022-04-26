@@ -24,9 +24,8 @@ def detalleLibros (request, id):
     
     libro = Libro.objects.get(id = id)
     
+    contexto = {'Libro' : LibroForm(instance=libro)}
     
-    
-    contexto = {'Libro' : libro}
     
     return render (request, 'detalle_libros.html')
     
