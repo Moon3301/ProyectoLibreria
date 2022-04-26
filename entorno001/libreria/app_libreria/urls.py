@@ -11,6 +11,6 @@ urlpatterns = [
     path('inicio',inicio ,name = "inicio"),
     path('libros',libros, name = "libros"),
     path('listarLibros',listarLibros, name = "listarLibros"),
-    path('detalleLibros', detalleLibros, name="detalleLibros"),
+    path('detalleLibros/<id>', detalleLibros, name="detalleLibros"),
 
 ]

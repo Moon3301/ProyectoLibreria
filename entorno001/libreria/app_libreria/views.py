@@ -20,9 +20,13 @@ def listarLibros (request):
     return render (request, 'libros.html', contexto)
 
 
-def detalleLibros (request):
+def detalleLibros (request, id):
     
-    #libro = Libro.objects.get(codigo = codigo)
+    libro = Libro.objects.get(id = id)
+    
+    
+    
+    contexto = {'Libro' : libro}
     
     return render (request, 'detalle_libros.html')
     
