@@ -110,9 +110,11 @@
         </ol>
         <h2>Detalle Libro</h2>
         {% csrf_token %}
+        {{libro.as_table}}
 
 
-        {{ Libro.as_table }}
+        
+        
 
       </div>
     </section><!-- End Breadcrumbs -->
