@@ -12,5 +12,6 @@ urlpatterns = [
     path('libros',libros, name = "libros"),
     path('listarLibros',listarLibros, name = "listarLibros"),
     path('detalleLibros/<id>', detalleLibros, name="detalleLibros"),
+    path('formCompra', formCompra, name="formCompra"),
 
 ]

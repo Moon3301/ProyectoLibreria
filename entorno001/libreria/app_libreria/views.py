@@ -8,11 +8,6 @@ def inicio (request):
 def libros (request):
     return render (request, 'libros.html')
 
-def libros1 (request):
-    return render (request, 'detalle_libros.html')
-
-
-
 def listarLibros (request):
     listado = Libro.objects.all()
 
@@ -24,11 +19,21 @@ def detalleLibros (request, id):
     
     libro = Libro.objects.get(id = id)
     
-    contexto = {'Libro' : LibroForm(instance=libro)}
-    
- 
+    contexto = {'Libro' : libro}
     
     return render (request, 'detalle_libros.html',contexto)
+
+def formCompra(request):
+
+    contexto = {'formulario' : ClienteForm}
+
+    if request.method == 'POST':
+
+        cliente = ClienteForm(request.POST)
+        cliente.save()
+        contexto['mensaje'] = 'Datos Guardados'
+
+    return render (request, 'formCompra.html', contexto)
     
 
 
