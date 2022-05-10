@@ -13,6 +13,13 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nombre
 
+
+class CategoriaLibro(models.Model):
+    id = models.IntegerField(primary_key=True)
+    nombre = models.CharField(max_length=50)
+    def __str__(self):
+        return self.nombre
+
 class Libro(models.Model):
     id       = models.IntegerField(primary_key=True)
     nombre   = models.CharField(max_length=50)
@@ -20,6 +27,9 @@ class Libro(models.Model):
     imagen   = models.CharField(max_length=50)
     editorial= models.CharField(max_length=50)
     stock    = models.IntegerField()
+    precio = models.IntegerField()
+    categoria = models.ForeignKey(CategoriaLibro, on_delete = models.CASCADE)
+    
     def __str__(self):
         return self.nombre
     
