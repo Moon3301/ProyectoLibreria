@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from libreria.models import *
+from app_libreria.models import *
 
 
 class LibroSerializers(serializers.ModelSerializer):

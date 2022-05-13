@@ -5,6 +5,6 @@ from django.contrib import admin
 from .views import *
 
 urlpatterns = [
-    path('listarLibro/',listarLibro, name= "listarLibro"),
+    path('listarLibro',listarLibro, name= "listarLibro"),
     
 ]

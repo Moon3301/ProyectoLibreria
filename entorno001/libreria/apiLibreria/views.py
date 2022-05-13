@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
 
 from .serializers import *
-from libreria.models import *
+from app_libreria.models import *
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -21,7 +21,6 @@ from rest_framework.permissions import IsAuthenticated
 
 
 @api_view(['GET','POST'])
-
 def listarLibro(request):
     if request.method == 'GET':
         listado = Libro.objects.all()
