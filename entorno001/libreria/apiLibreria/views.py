@@ -19,7 +19,7 @@ from rest_framework.authentication import TokenAuthentication
 
 from rest_framework.permissions import IsAuthenticated
 
-@csrf_exempt
+
 @api_view(['GET','POST'])
 
 def listarLibro(request):
