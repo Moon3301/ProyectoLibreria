@@ -35,7 +35,9 @@ def listarLibro(request):
         Serializer.save()
         return Response(Serializer.data, status= status.HTTP_201_CREATED)
     
-    return Response(Serializer.errors, status= status.HTTP_400_BAD_REQUEST) 
+    return Response(Serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+
 
 @api_view(['GET','POST'])
 def libroLista(request, id):
