@@ -58,15 +58,15 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1><a href="index.html">VentaWeb</a></h1>
+        <h1><a href="{% url 'inicio' %}">VentaWeb</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="active" href="inicio">Inicio</a></li>
-          <li><a href="listarLibros">Libros</a></li>
+          <li><a class="active" href="{% url 'inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'listarLibros' %}">Libros</a></li>
           <li><a href="services.html">Servicios</a></li>
           <li><a href="blog.html">Nosotros</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -86,7 +86,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contacto</a></li>
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
