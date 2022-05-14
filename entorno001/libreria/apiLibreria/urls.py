@@ -6,5 +6,6 @@ from .views import *
 
 urlpatterns = [
     path('listarLibro',listarLibro, name= "listarLibro"),
+    path('libroLista/<id>', libroLista, name="libroLista"),
     
 ]

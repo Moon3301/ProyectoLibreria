@@ -9,6 +9,7 @@ from rest_framework.authtoken.models import Token
 
 from .serializers import *
 from app_libreria.models import *
+from app_libreria.models import Libro
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -36,4 +37,22 @@ def listarLibro(request):
     
     return Response(Serializer.errors, status= status.HTTP_400_BAD_REQUEST) 
 
+@api_view(['GET','POST'])
+def libroLista(request, id):
+    libro = Libro.objects.get(id=id)
+    try:
+        objeto = Libro.objects.get(id = id)
+    except Libro.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = LibroSerializers(objeto)
+        return Response(serializer.data)
+        return Response(Serializer.data)
+
+    
+    
+
+    
+    
 # Create your views here.
