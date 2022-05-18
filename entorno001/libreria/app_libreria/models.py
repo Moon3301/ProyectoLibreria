@@ -43,9 +43,11 @@ class Tienda(models.Model):
 
 class Carrito(models.Model):
     id    = models.IntegerField(primary_key=True)
-    fecha = models.DateField()
+    fecha = models.CharField(max_length=50)
+    
     listaLibros = models.ManyToManyField(Libro)
     
+
     
 
     def __str__(self):
