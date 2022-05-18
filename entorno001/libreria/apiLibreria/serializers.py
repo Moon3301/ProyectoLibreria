@@ -21,3 +21,8 @@ class CategoriaLibroSerializers(serializers.ModelSerializer):
     class Meta:
         model = CategoriaLibro
         fields = '__all__'
+
+class CarritoSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Carrito
+        fields = '__all__'

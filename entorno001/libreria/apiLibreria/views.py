@@ -10,6 +10,7 @@ from rest_framework.authtoken.models import Token
 from .serializers import *
 from app_libreria.models import *
 from app_libreria.models import Libro
+from app_libreria.models import Carrito
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -64,8 +65,46 @@ def libroLista(request, id):
 
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
 
-        
+@api_view(['GET','POST'])
+def listarCarro(request):
+    if request.method == 'GET':
+        carro = Carrito.objects.all()
+        Serializer = CarritoSerializers(carro, many=True)
+        return Response(Serializer.data)
 
+    elif request.method == 'POST':
+        Serializer = CarritoSerializers(data= request.data)
+
+    if Serializer.is_valid():
+        Serializer.save()
+        return Response(Serializer.data, status= status.HTTP_201_CREATED)
+    
+    return Response(Serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET','PUT','DELETE'])        
+def carritoLista(request, id):
+    carrito = Carrito.objects.get(id=id)
+    try:
+        objetoC = Carrito.objects.get(id = id)
+    except Carrito.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET': #leer
+        serializer = CarritoSerializers(objetoC)
+        return Response(serializer.data)
+
+    elif request.method == 'DELETE': # eliminar
+        objetoC.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)
+
+    elif request.method == 'PUT': # modificar
+        serializer = CarritoSerializers(objetoC, data= request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
 
     
     
