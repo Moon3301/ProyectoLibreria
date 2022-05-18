@@ -39,7 +39,7 @@ def listarLibro(request):
 
 
 
-@api_view(['GET','POST','DELETE'])
+@api_view(['GET','DELETE','PUT'])
 def libroLista(request, id):
     libro = Libro.objects.get(id=id)
     try:
@@ -50,9 +50,11 @@ def libroLista(request, id):
     if request.method == 'GET': #leer
         serializer = LibroSerializers(objeto)
         return Response(serializer.data)
+
     elif request.method == 'DELETE': # eliminar
         objeto.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
+
     elif request.method == 'PUT': # modificar
         serializer = LibroSerializers(objeto, data= request.data)
 
@@ -61,6 +63,9 @@ def libroLista(request, id):
             return Response(serializer.data)
 
         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+
+        
+
 
     
     
