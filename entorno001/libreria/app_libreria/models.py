@@ -1,3 +1,5 @@
+from operator import mod
+from statistics import mode
 from tkinter import image_names
 from django.db import models
 from django.db.models.deletion import CASCADE
@@ -11,7 +13,7 @@ class Cliente(models.Model):
     correo    = models.EmailField( max_length=50)
     telefono  = models.IntegerField()
     def __str__(self):
-        return self.nombre
+        return self.rut
 
 
 class CategoriaLibro(models.Model):
@@ -38,3 +40,11 @@ class Tienda(models.Model):
     ubicacion = models.CharField(max_length=50)
     def __str__(self):
         return self.ubicacion
+
+class Carrito(models.Model):
+    id    = models.IntegerField(primary_key=True)
+    fecha = models.DateField()
+    libro = models.ForeignKey(Libro, on_delete = models.CASCADE)
+    def __str__(self):
+        return str(self.id)
+    # rut_cliente = models.ForeignKey(Cliente)
