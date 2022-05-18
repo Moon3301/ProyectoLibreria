@@ -39,11 +39,7 @@ def listarLibro(request):
 
 
 
-<<<<<<< HEAD
-@api_view(['GET','DELETE','PUT'])
-=======
 @api_view(['GET','PUT','DELETE'])
->>>>>>> d832a273f36dae6e85b8278593d8a91d873c2b82
 def libroLista(request, id):
     libro = Libro.objects.get(id=id)
     try:

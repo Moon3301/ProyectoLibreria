@@ -44,7 +44,10 @@ class Tienda(models.Model):
 class Carrito(models.Model):
     id    = models.IntegerField(primary_key=True)
     fecha = models.DateField()
-    libro = models.ForeignKey(Libro, on_delete = models.CASCADE)
+    listaLibros = models.ManyToManyField(Libro)
+    
+    
+
     def __str__(self):
         return str(self.id)
     # rut_cliente = models.ForeignKey(Cliente)
